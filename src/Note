@@ -1,0 +1,28 @@
+配置文件：application.properties
+src/test/下的测试入口
+引入web模块
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+src/test/下的测试入口Chapter1ApplicationTests类。
+
+在命令行运行时，连续的两个减号--就是对application.properties中的属性值进行赋值的标识。所以，java -jar xxx.jar --server.port=8888命令，等价于我们在application.properties中添加属性server.port=8888，该设置在样例工程中可见，读者可通过删除该值或使用命令行来设置该值来验证。
+
+通过命令行来修改属性值固然提供了不错的便利性，但是通过命令行就能更改应用运行的参数，那岂不是很不安全？是的，所以Spring Boot也贴心的提供了屏蔽命令行访问属性的设置，只需要这句设置就能屏蔽：SpringApplication.setAddCommandLineProperties(false)。
+
+
+application-dev.properties：开发环境
+application-test.properties：测试环境
+application-prod.properties：生产环境
+
+application.properties中配置通用内容，并设置spring.profiles.active=dev，以开发环境为默认配置
+application-{profile}.properties中配置各个环境不同的内容
+通过命令行方式去激活不同环境的配置
+
+执行java -jar xxx.jar，可以观察到服务端口被设置为1111，也就是默认的开发环境（dev）
+执行java -jar xxx.jar --spring.profiles.active=test，可以观察到服务端口被设置为2222，也就是测试环境的配置（test）
+执行java -jar xxx.jar --spring.profiles.active=prod，可以观察到服务端口被设置为3333，也就是生产环境的配置（prod）
+
+通过传入的参数 来使用不同的配置文件
+
