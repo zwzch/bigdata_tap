@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     @RequestMapping("/hello")
-    public String index() {
-        return "Hello World";
+    public String index() throws Exception {
+        throw new Exception("发生错误");
     }
 }
