@@ -93,6 +93,10 @@
 			<version>2.5.0.RELEASE</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jdbc</artifactId>
+		</dependency>
 	</dependencies>
 
 
