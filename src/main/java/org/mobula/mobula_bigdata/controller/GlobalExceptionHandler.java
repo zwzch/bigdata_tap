@@ -11,7 +11,11 @@ import javax.servlet.http.HttpServletRequest;
  */
 @ControllerAdvice
 public class GlobalExceptionHandler {
+    /*
+    * 全局错误页面
+    * */
     public static final String DEFAULT_ERROR_VIEW = "error";
+    //页面名称
 
     @ExceptionHandler(value = Exception.class)
     public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {

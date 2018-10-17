@@ -17,6 +17,9 @@ import com.alibaba.druid.pool.DruidDataSource;
 @Configuration
 @ConfigurationProperties(prefix = "hive")
 public class HiveDruidConfig {
+    /*
+    * Druid连接池配置加载
+    * */
     private String url;
     private String user;
     private String password;
@@ -57,6 +60,11 @@ public class HiveDruidConfig {
         datasource.setPoolPreparedStatements(poolPreparedStatements);
         datasource.setMaxPoolPreparedStatementPerConnectionSize(maxPoolPreparedStatementPerConnectionSize);
         return datasource;
+    }
+
+    @Bean(name = "hiveDruidTemplate")
+    public JdbcTemplate hiveDruidTemplate(@Qualifier("hiveDruidDataSource") DataSource dataSource) {
+        return new JdbcTemplate(dataSource);
     }
 
     public String getUrl () {
@@ -187,10 +195,7 @@ public class HiveDruidConfig {
         this.maxPoolPreparedStatementPerConnectionSize = maxPoolPreparedStatementPerConnectionSize;
     }
 
-    @Bean(name = "hiveDruidTemplate")
-    public JdbcTemplate hiveDruidTemplate(@Qualifier("hiveDruidDataSource") DataSource dataSource) {
-        return new JdbcTemplate(dataSource);
-    }
+
 
 
 }

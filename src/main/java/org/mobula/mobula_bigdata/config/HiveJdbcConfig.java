@@ -2,10 +2,6 @@
  * Copyright (C) 2018 Baidu, Inc. All Rights Reserved.
  */
 package org.mobula.mobula_bigdata.config;
-
-
-
-
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +14,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 @Configuration
 public class HiveJdbcConfig {
-
+    /*
+    * 单个Jdbc连接建立
+    * */
     private static final Logger logger = LoggerFactory.getLogger(HiveJdbcConfig.class);
 
     @Autowired
