@@ -5,8 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mobula.mobula_bigdata.controller.HelloController;
-import org.mobula.mobula_bigdata.controller.UserController;
+
 import org.mobula.mobula_bigdata.model.ModelTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -33,7 +32,7 @@ public class MobulaBigdataApplicationTests {
 	@Before
 	public void setUp() throws Exception {
 //		mvc = MockMvcBuilders.standaloneSetup(new HelloController()).build();
-		mvc = MockMvcBuilders.standaloneSetup(new UserController()).build();
+//		mvc = MockMvcBuilders.standaloneSetup(new UserController()).build();
 	}
 
 	@Test
