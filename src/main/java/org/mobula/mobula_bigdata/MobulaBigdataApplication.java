@@ -9,4 +9,5 @@ public class MobulaBigdataApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MobulaBigdataApplication.class, args);
 	}
+
 }
